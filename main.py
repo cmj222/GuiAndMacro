@@ -1,14 +1,15 @@
-# This is a sample Python script.
+import pytesseract
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from PIL import Image
 
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
-def print_hi(name):
+A = Image.open('이미지.png')
+result = pytesseract.image_to_string(A, lang='kor')
 
+result = "테 스 트 입 니 다 !"
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+result = result.replace(" ","")
+print(result)
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
